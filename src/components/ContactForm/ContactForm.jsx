@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ImPhone, ImUser } from 'react-icons/im';
 
 import { addContact } from 'redux/operations';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 
 import {
   FormWrap,
@@ -15,7 +15,7 @@ import {
 } from './ContactForm.styled';
 
 export default function ContactForm() {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const dispatch = useDispatch();
 
