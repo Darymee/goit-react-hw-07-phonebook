@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import { ImUser } from 'react-icons/im';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice.js';
+import { deleteContact } from 'redux/operations';
 import {
   ContactItem,
   Name,
@@ -10,7 +10,7 @@ import {
   ButtonDelete,
 } from './ContactsListItem.styled.js';
 
-export const ContactsListItem = ({ name, number, id }) => {
+export const ContactsListItem = ({ name, phone, id }) => {
   const dispatch = useDispatch();
 
   const onDelete = () => dispatch(deleteContact(id));
@@ -21,7 +21,7 @@ export const ContactsListItem = ({ name, number, id }) => {
         <ImUser />
         {name}:
       </Name>
-      <Number>{number}</Number>
+      <Number>{phone}</Number>
       <ButtonDelete type="button" onClick={onDelete}>
         Delete
       </ButtonDelete>
@@ -31,6 +31,6 @@ export const ContactsListItem = ({ name, number, id }) => {
 
 ContactsListItem.propTypes = {
   name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };

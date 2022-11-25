@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addContact } from 'redux/contactsSlice';
-
 import { ImPhone, ImUser } from 'react-icons/im';
+
+import { addContact } from 'redux/operations';
+import { getContacts } from 'redux/selectors';
+
 import {
   FormWrap,
   Form,
@@ -11,7 +13,6 @@ import {
   Input,
   ButtonSubmit,
 } from './ContactForm.styled';
-import { getContacts } from 'redux/selectors';
 
 export default function ContactForm() {
   const contacts = useSelector(getContacts);
@@ -30,7 +31,7 @@ export default function ContactForm() {
       }
     }
 
-    dispatch(addContact(name.value, number.value));
+    dispatch(addContact({ name: name.value, phone: number.value }));
 
     form.reset();
   };
