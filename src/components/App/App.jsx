@@ -42,7 +42,7 @@ export default function App() {
         {isLoading && <Message text={'Loading your contacts, please wait..'} />}
 
         {error && <Message text={error} />}
-        {items.length > 0 && <ContactsList />}
+        {!!items.length && <ContactsList />}
       </ContactWrap>
     </PhonebookWrap>
   );
